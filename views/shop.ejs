@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hallo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
+    <% include basic_includes.ejs %>
+    <script type="text/javascript" src="javascripts/share.js"></script>
+    <script type="text/javascript" src="javascripts/shop.js"></script>
+    <script type="text/javascript" src="javascripts/modules/promise-tracker.js"></script>
+</head>
+
+<body>
+<% include navbar.ejs %>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron hero-spacer">
+        <h1>Welcome to our Online-Shop!</h1>
+        <p>We hope you'll like it.</p>
+    </header>
+
+    <hr>
+    <div id="messages" class="alert alert-info" data-ng-show="messages"
+         data-ng-bind="messages" ng-style="customStyle.style"></div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Our Items</h3>
+        </div>
+    </div>
+    <div ng-controller="shop">
+        <div id="messages" class="alert alert-info" data-ng-show="messages"
+             data-ng-bind="messages" ng-style="customStyle.style" ng-show="showMessage"></div>
+        <div class="row text-center">
+            <div class="row-height">
+                <div class="col-md-4 hero-feature" ng-repeat="item in pagedItems[currentPage]">
+
+                    <div class="thumbnail">
+                        <!--img src="http://placehold.it/800x500" {{item.imagePath}} alt=""-->
+                        <img src={{item.imagePath}} alt="">
+                        <div class="caption">
+                            <h3>{{item.name}}</h3>
+                            <p>{{item.description}}</p>
+                            <p>
+                                <a ng-click="buy(item)" class="btn btn-primary">Buy</a> <a href="#"
+                                                                                           class="btn btn-default">More
+                                    Info</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

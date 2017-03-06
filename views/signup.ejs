@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOUR SHOPPING CART</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
+    <% include basic_includes.ejs %>
+    <script type="text/javascript" src="javascripts/modules/promise-tracker.js"></script>
+</head>
+<body>
+<% include navbar.ejs %>
+<div data-ng-controller="signup" class="container">
+    <div class="page-header">
+        <h1>Register yourself</h1>
+    </div>
+    <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"
+         ng-style="customStyle.style"></div>
+    <div data-ng-show="progress.active()" style="color: red; font-size: 50px;">Sending…</div>
+    <!--div ng-hide="hideLink" data-ng-model="verify_email">
+    </div-->
+    <div ng-hide="hideUrl">
+        <h3>Please verify your email by executing this link:</h3>
+        <input ng-hide="hideUrl" class="form-control" id="inputdefault" type="text" data-ng-model="verify_email">
+        <p> After verification you will be redirected to the shoppingcart </p>
+    </div>
+
+    <form class="form-horizontal" role="form" name="helpForm" novalidate role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">First name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="first_name" id="first_name" data-ng-model="first_name"
+                       placeholder="Enter first name" required\>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="last_name">Last name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="last_name" id="last_name" data-ng-model="last_name"
+                       placeholder="Enter first name" required\>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Your E-mail address</label>
+            <span class="label label-danger" data-ng-show="submitted && helpForm.email.$error.required">Required!</span>
+            <span class="label label-danger" data-ng-show="submitted && helpForm.$error.email">Invalid email!</span>
+            <div class="col-sm-10">
+                <input type="email" name="email" data-ng-model="email" class="form-control" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <span class="label label-danger" data-ng-show="submitted && helpForm.pwd.$error.required">Required!</span>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="pwd" data-ng-model="pwd"
+                       placeholder="Password" required>
+            </div>
+        </div>
+        <!--div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="remember"> Remember me</label>
+                </div>
+            </div>
+        </div-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" type="submit"
+                        class="btn btn-default">Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

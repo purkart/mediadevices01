@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/cart">BEST ONLINESHOP EVER!</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/shop">Shop</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                                class="glyphicon glyphicon-log-in"></span> Login<span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12" data-ng-controller="login">
+                                    <div id="messages" class="alert alert-success" data-ng-show="messages"
+                                         data-ng-bind="messages" ng-style="customStyle.style"></div>
+                                    <form class="form" role="form" name="helpForm" novalidate role="form">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <span class="label label-danger"
+                                                  data-ng-show="submitted && helpForm.email.$error.required">Required!</span>
+                                            <span class="label label-danger"
+                                                  data-ng-show="submitted && helpForm.$error.email">Invalid email!</span>
+                                            <input type="email" class="form-control" id="email" data-ng-model="email"
+                                                   placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="pwd">Password</label>
+                                            <input type="password" class="form-control" id="pwd" data-ng-model="pwd"
+                                                   placeholder="Password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <button data-ng-disabled="progress.active()"
+                                                    data-ng-click="submit(helpForm)" type="submit"
+                                                    class="btn btn-primary btn-block" id="signup_button">
+                                                Sign in
+                                            </button>
+                                        </div>
+                                        <!--div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> keep me logged-in
+                                            </label>
+                                        </div-->
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
